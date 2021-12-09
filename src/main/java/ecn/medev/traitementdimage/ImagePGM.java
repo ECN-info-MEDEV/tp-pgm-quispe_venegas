@@ -12,16 +12,49 @@ import java.util.*;
  * @author Isaias
  */
 public class ImagePGM {
-    private final String nomFichier;
     private int largueur;
     private int hauteur;
     private int niveauxGris;
-    private ArrayList<ArrayList<Integer>> matrix;
-    private BufferedReader reader;
-    private StringTokenizer tokenizer;
+    private int[][] matrice;
 
-    public ImagePGM(String nomFichier) {
-        this.nomFichier = nomFichier;
-        this.matrix = new ArrayList<>();
+    public ImagePGM(int largueur, int hauteur, int maxGris, int[][] matrice) throws FileNotFoundException {
+        this.largueur = largueur;
+        this.hauteur = hauteur;
+        this.niveauxGris = maxGris;
+        this.matrice = matrice;
     }
+
+    public int getLargueur() {
+        return largueur;
+    }
+
+    public int getHauteur() {
+        return hauteur;
+    }
+
+    public int[][] getMatrice() {
+        return matrice;
+    }
+
+    public void setLargueur(int largueur) {
+        this.largueur = largueur;
+    }
+
+    public void setHauteur(int hauteur) {
+        this.hauteur = hauteur;
+    }
+
+    public void setNiveauxGris(int niveauxGris) {
+        this.niveauxGris = niveauxGris;
+    }
+    
+    public void afficherMatrice(){
+        for(int[] ligne : matrice){
+            for(int pixel : ligne){
+                System.out.print(pixel + " ");
+            }
+            System.out.println();
+        }
+    }
+    
 }
