@@ -4,12 +4,23 @@
  */
 package ecn.medev.traitementdimage;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 /**
  *
  * @author Isaias
  */
 public class TraitementDImage {
-    public static void main(String[] args){
+    public static void main(String[] args) throws FileNotFoundException{
+        int[] infoPGM;
+        int[][] matrice;
+        ImagePGM image;
+        
+        LecteurPGM lecteur = new LecteurPGM("baboon");
+        infoPGM = lecteur.readPGMFile();
+        matrice = lecteur.creerMatrice(infoPGM[0],infoPGM[1]);
+        image = new ImagePGM(infoPGM[0],infoPGM[1],infoPGM[2], matrice);
         
     }
 }
