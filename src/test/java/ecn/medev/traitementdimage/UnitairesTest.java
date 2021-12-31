@@ -18,9 +18,9 @@ import static org.junit.jupiter.api.Assertions.*;
 public class UnitairesTest {
     
     private static LecteurPGM lecteur;
-    
+
     public UnitairesTest(){
-        LecteurPGM lecteur;
+        
     }
     
     @BeforeAll
@@ -34,6 +34,7 @@ public class UnitairesTest {
 
     @Test
     public void testReadPGMFile() throws FileNotFoundException {
+        lecteur = new LecteurPGM("testFile");
         int[] infoPGM = this.lecteur.readPGMFile();
         assertEquals(infoPGM.length, 3);
         assertEquals(infoPGM[0], 2);
@@ -42,9 +43,15 @@ public class UnitairesTest {
     }
     
     @Test
-    public void testCreerMatrice() {
+    public void testCreerMatrice() throws FileNotFoundException {
+        lecteur = new LecteurPGM("testFile");
         int[] infoPGM = this.lecteur.readPGMFile();
         int[][] matrice = this.lecteur.creerMatrice(infoPGM[0],infoPGM[1]);
+        
+        System.out.println(matrice.length);
+        System.out.println(matrice[0].length);
+        System.out.println(matrice[1].length);
+        
         assertEquals(matrice.length, 2);
         assertEquals(matrice[0].length, 2);
         assertEquals(matrice[1].length, 2);

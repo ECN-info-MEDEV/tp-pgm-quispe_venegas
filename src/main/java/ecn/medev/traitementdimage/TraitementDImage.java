@@ -5,7 +5,6 @@
 package ecn.medev.traitementdimage;
 
 import java.io.FileNotFoundException;
-import java.io.IOException;
 
 /**
  *
